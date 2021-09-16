@@ -1,0 +1,19 @@
+alias e='emacs $OPTIONS'
+alias ls='ls --color=auto $OPTIONS'
+alias ll='ls -Xhl $OPTIONS'
+alias interactive_job='qsub -I -X -P ek9 -l wd -l storage=scratch/ek9+gdata/ek9 -q express -l walltime=01:00:00,ncpus=16,mem=64GB'
+alias qs='qstat |grep -e $USER'
+alias myps='ps -elf |grep $USER'
+alias projectinfo='lquota; nci-files-report -f scratch -p ek9; nci-files-report -f gdata -p ek9; nci_account -v'
+alias yt-activate='source /g/data/ek9/yt-conda/bin/activate'
+# mpi4py on Gadi:
+# - unload all python modules
+# - module load python3-as-python
+# - module load openmpi4.0.2
+# - pip3 install --user <ANY_STUFF_YOU_NEED (probably including mpi4py itself)>
+# - run via: mpirun -np 2 python3 mpiprog.py
+
+export SCRATCH=/scratch/ek9/$USER
+export GDATA=/g/data1b/ek9/$USER
+alias tmp='cd $SCRATCH'
+alias gdata='cd $GDATA'
